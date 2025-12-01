@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2025 by star3542 (http://jsbin.com/bosemah/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>색상 변경 패턴</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-family: Arial;
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    canvas {
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      margin-top: 15px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: nowrap;
+      margin-bottom: 10px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    input[type="color"] {
+      width: 45px;
+      height: 28px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .reset-btn {
+      background: #FF9F43;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: 0.2s;
+    }
+
+    .reset-btn:hover {
+      background: #E5882D;
+    }
+  </style>
+</head>
+<body>
+
+<div class="controls">
+
+  <div class="control-group">
+    <label>선</label>
+    <input type="color" id="colorLine" value="#000000">
+  </div>
+
+  <div class="control-group">
+    <label>큰 마름모</label>
+    <input type="color" id="colorBigDiamond" value="#000000">
+  </div>
+
+  <div class="control-group">
+    <label>작은 마름모</label>
+    <input type="color" id="colorSmallDiamond" value="#ffffff">
+  </div>
+
+  <div class="control-group">
+    <label>원</label>
+    <input type="color" id="colorCircle" value="#000000">
+  </div>
+
+</div>
+
+<canvas id="patternCanvas" width="400" height="400"></canvas>
+
+<button class="reset-btn" onclick="resetPattern()">초기화</button>
+
+<script>
+const canvas = document.getElementById('patternCanvas');
+const ctx = canvas.getContext('2d');
+
+/* ✔ 7×7 패턴을 위한 tileSize 계산 */
+const tileSize = 57;
+
+/* ✔ 닿지 않기 위해 scale 줄임 */
+const patternScale = 0.38;
+
+/* 색상 변수 */
+let colorLine = "#000000";
+let colorBigDiamond = "#000000";
+let colorSmallDiamond = "#ffffff";
+let colorCircle = "#000000";
+
+/* 초기화 */
+function resetPattern() {
+  document.getElementById("colorLine").value = "#000000";
+  document.getElementById("colorBigDiamond").value = "#000000";
+  document.getElementById("colorSmallDiamond").value = "#ffffff";
+  document.getElementById("colorCircle").value = "#000000";
+
+  colorLine = "#000000";
+  colorBigDiamond = "#000000";
+  colorSmallDiamond = "#ffffff";
+  colorCircle = "#000000";
+
+  drawPattern();
+}
+
+/* 색상 변경 */
+document.querySelectorAll("input[type='color']").forEach(input => {
+  input.addEventListener("input", () => {
+    colorLine = document.getElementById("colorLine").value;
+    colorBigDiamond = document.getElementById("colorBigDiamond").value;
+    colorSmallDiamond = document.getElementById("colorSmallDiamond").value;
+    colorCircle = document.getElementById("colorCircle").value;
+    drawPattern();
+  });
+});
+
+/* 패턴 7×7 반복 */
+function drawPattern() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let row = 0; row < 7; row++) {
+    for (let col = 0; col < 7; col++) {
+
+      const x = col * tileSize + tileSize / 2;
+      const y = row * tileSize + tileSize / 2;
+
+      ctx.save();
+      ctx.translate(x, y);
+
+      ctx.scale(patternScale, patternScale);
+
+      drawLogo(ctx);
+
+      ctx.restore();
+    }
+  }
+}
+
+/* 큰 패턴 */
+function drawLogo(ctx) {
+
+  ctx.fillStyle = colorBigDiamond;
+  ctx.beginPath();
+  ctx.moveTo(0, -80);
+  ctx.lineTo(60, 0);
+  ctx.lineTo(0, 80);
+  ctx.lineTo(-60, 0);
+  ctx.closePath();
+  ctx.fill();
+
+  for (let i = 0; i < 4; i++) {
+    drawArm(ctx, Math.PI / 4 + i * Math.PI / 2);
+  }
+
+  drawCenterDiamond(ctx);
+}
+
+/* 팔 */
+function drawArm(ctx, angle) {
+  ctx.save();
+  ctx.rotate(angle);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.moveTo(-10, -30);
+  ctx.lineTo(-25, -90);
+  ctx.lineTo(25, -90);
+  ctx.lineTo(10, -30);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.strokeStyle = colorLine;
+  ctx.lineWidth = 4;
+
+  ctx.beginPath();
+  ctx.moveTo(-12, -35);
+  ctx.lineTo(-26, -85);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(12, -35);
+  ctx.lineTo(26, -85);
+  ctx.stroke();
+
+  ctx.fillStyle = colorCircle;
+  ctx.beginPath();
+  ctx.arc(0, -75, 7, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+/* 작은 마름모 */
+function drawCenterDiamond(ctx) {
+  const size = 15;
+
+  ctx.fillStyle = colorSmallDiamond;
+  ctx.beginPath();
+  ctx.moveTo(0, -size);
+  ctx.quadraticCurveTo(4, 4, size, 0);
+  ctx.quadraticCurveTo(4, 4, 0, size);
+  ctx.quadraticCurveTo(-4, 4, -size, 0);
+  ctx.quadraticCurveTo(-4, -4, 0, -size);
+  ctx.fill();
+}
+
+drawPattern();
+</script>
+
+</body>
+</html>

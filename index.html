@@ -1,190 +1,199 @@
 <!DOCTYPE html>
 <meta name="robots" content="noindex">
+<meta name="robots" content="noindex">
+<meta name="robots" content="noindex">
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Illusion Lab</title>
+
+<meta property="og:title" content="ILLUSION LAB">
+<meta property="og:site_name" content="ILLUSION LAB">
+<meta property="og:description" content="Create your optimal illusion pattern!">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://imgur.com/RPf6Xya.jpg">
+
+<title>ILLUSION LAB</title>
 <style>
  /* DESIGNER BRAND AESTHETIC CSS */
  :root {
-  --panel-bg: rgba(255, 255, 255, 0.92);
-  --text-main: #1a1a1a;
-  --text-sub: #777;
-  --border-color: #e5e5e5;
+ 	--panel-bg: rgba(255, 255, 255, 0.92);
+ 	--text-main: #1a1a1a;
+ 	--text-sub: #777;
+ 	--border-color: #e5e5e5;
  }
 
  body {
-  margin: 0;
-  height: 100vh;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow: hidden;
-  background-color: #f4f4f4;
-  color: var(--text-main);
+ 	margin: 0;
+ 	height: 100vh;
+ 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	overflow: hidden;
+ 	background-color: #f4f4f4;
+ 	color: var(--text-main);
  }
 
  /* HEADER */
  header {
-  position: absolute;
-  top: 0; left: 0;
-  padding: 40px;
-  z-index: 100;
-  pointer-events: none;
+ 	position: absolute;
+ 	top: 0; left: 0;
+ 	padding: 40px;
+ 	z-index: 100;
+ 	pointer-events: none;
  }
  h1 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+ 	margin: 0;
+ 	font-size: 1.2rem;
+ 	font-weight: 800;
+ 	letter-spacing: 1px;
+ 	text-transform: uppercase;
  }
  .subtitle {
-  font-size: 0.7rem;
-  color: var(--text-sub);
-  letter-spacing: 0.5px;
-  margin-top: 6px;
-  font-weight: 500;
+ 	font-size: 0.7rem;
+ 	color: var(--text-sub);
+ 	letter-spacing: 0.5px;
+ 	margin-top: 6px;
+ 	font-weight: 500;
  }
 
  /* CANVAS */
  #canvas-container {
-  width: 100%;
-  height: 100%;
+ 	width: 100%;
+ 	height: 100%;
  }
  canvas { display: block; }
 
  /* CONTROL PANEL */
  #controls {
-  position: absolute;
-  top: 0; right: 0;
-  width: 340px;
-  height: 100%;
-  background: var(--panel-bg);
-  backdrop-filter: blur(20px);
-  border-left: 1px solid var(--border-color);
-  padding: 100px 30px 40px 30px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-  box-shadow: -5px 0 30px rgba(0,0,0,0.02);
-  z-index: 150;
+ 	position: absolute;
+ 	top: 0; right: 0;
+ 	width: 340px;
+ 	height: 100%;
+ 	background: var(--panel-bg);
+ 	backdrop-filter: blur(20px);
+ 	border-left: 1px solid var(--border-color);
+ 	padding: 100px 30px 40px 30px;
+ 	box-sizing: border-box;
+ 	overflow-y: auto;
+ 	display: flex;
+ 	flex-direction: column;
+ 	gap: 45px;
+ 	box-shadow: -5px 0 30px rgba(0,0,0,0.02);
+ 	z-index: 150;
  }
 
  .section-title {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-sub);
-  margin-bottom: 15px;
-  font-weight: 700;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 8px;
+ 	font-size: 0.65rem;
+ 	text-transform: uppercase;
+ 	letter-spacing: 2px;
+ 	color: var(--text-sub);
+ 	margin-bottom: 15px;
+ 	font-weight: 700;
+ 	border-bottom: 1px solid #eee;
+ 	padding-bottom: 8px;
  }
 
  /* Inputs */
  .control-row { margin-bottom: 20px; }
  .label-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #333;
+ 	display: flex;
+ 	justify-content: space-between;
+ 	font-size: 0.8rem;
+ 	font-weight: 600;
+ 	margin-bottom: 8px;
+ 	color: #333;
  }
  .value-text { font-family: 'Courier New', monospace; color: var(--text-sub); font-size: 0.75rem; }
 
  input[type=range] {
-  width: 100%;
-  -webkit-appearance: none;
-  background: transparent;
+ 	width: 100%;
+ 	-webkit-appearance: none;
+ 	background: transparent;
  }
  input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 14px; width: 14px;
-  border-radius: 50%;
-  background: #000;
-  cursor: pointer;
-  margin-top: -6px;
-  box-shadow: 0 0 0 2px #fff;
+ 	-webkit-appearance: none;
+ 	height: 14px; width: 14px;
+ 	border-radius: 50%;
+ 	background: #000;
+ 	cursor: pointer;
+ 	margin-top: -6px;
+ 	box-shadow: 0 0 0 2px #fff;
  }
  input[type=range]::-webkit-slider-runnable-track {
-  width: 100%; height: 2px; background: #ddd;
+ 	width: 100%; height: 2px; background: #ddd;
  }
 
  select {
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid #000;
-  background: transparent;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
-  outline: none;
-  cursor: pointer;
-  border-radius: 0;
+ 	width: 100%;
+ 	padding: 12px 0;
+ 	border: none;
+ 	border-bottom: 1px solid #000;
+ 	background: transparent;
+ 	font-family: inherit;
+ 	font-size: 0.95rem;
+ 	font-weight: 700;
+ 	outline: none;
+ 	cursor: pointer;
+ 	border-radius: 0;
  }
 
  /* --- COLOR PALETTE STYLES --- */
  .palette-group {
-  background: #f8f8f8;
-  padding: 15px;
-  border-radius: 4px;
-  border: 1px solid #eee;
+ 	background: #f8f8f8;
+ 	padding: 15px;
+ 	border-radius: 4px;
+ 	border: 1px solid #eee;
  }
 
  .palette-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-bottom: 15px;
+ 	display: grid;
+ 	grid-template-columns: repeat(5, 1fr);
+ 	gap: 10px;
+ 	margin-bottom: 15px;
  }
  .color-item { text-align: center; }
 
  .color-wrapper {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px #ddd;
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+ 	width: 100%;
+ 	aspect-ratio: 1;
+ 	border-radius: 50%;
+ 	overflow: hidden;
+ 	position: relative;
+ 	border: 2px solid #fff;
+ 	box-shadow: 0 0 0 1px #ddd;
+ 	cursor: pointer;
+ 	transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
  }
  .color-wrapper:hover { transform: scale(1.15); box-shadow: 0 0 0 2px #000; }
  input[type="color"] {
-  position: absolute; top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  border: none; cursor: pointer;
+ 	position: absolute; top: -50%; left: -50%;
+ 	width: 200%; height: 200%;
+ 	border: none; cursor: pointer;
  }
  .color-name {
-  font-size: 0.6rem; text-align: center; color: #999;
-  margin-top: 6px; display: block; font-weight: 500;
-  text-transform: uppercase;
+ 	font-size: 0.6rem; text-align: center; color: #999;
+ 	margin-top: 6px; display: block; font-weight: 500;
+ 	text-transform: uppercase;
  }
 
  /* Buttons Layout */
  .btn-group {
-  display: grid;
-  grid-template-columns: 1fr; 
-  gap: 12px;
+ 	display: grid;
+ 	grid-template-columns: 1fr; 
+ 	gap: 12px;
  }
  .btn-full {
-  grid-column: span 2;
+ 	grid-column: span 2;
  }
 
  button {
-  padding: 16px 0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: all 0.2s;
+ 	padding: 16px 0;
+ 	font-size: 0.75rem;
+ 	font-weight: 700;
+ 	text-transform: uppercase;
+ 	border: none;
+ 	cursor: pointer;
+ 	letter-spacing: 1px;
+ 	transition: all 0.2s;
  }
  .btn-primary { background: #111; color: #fff; }
  .btn-primary:hover { background: #333; }
@@ -192,162 +201,163 @@
  .btn-secondary:hover { background: #f8f8f8; border-color: #999; }
 
  .btn-reset {
-  width: 100%;
-  background: #eee;
-  color: #555;
-  font-size: 0.7rem;
-  padding: 10px 0;
-  margin-top: 10px;
+ 	width: 100%;
+ 	background: #eee;
+ 	color: #555;
+ 	font-size: 0.7rem;
+ 	padding: 10px 0;
+ 	margin-top: 10px;
  }
  .btn-reset:hover { background: #ddd; color: #000; }
 
  .btn-action-palette {
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ddd;
-  color: #333;
-  font-size: 0.7rem;
-  padding: 10px 0;
-  margin-top: 5px;
+ 	width: 100%;
+ 	background: #fff;
+ 	border: 1px solid #ddd;
+ 	color: #333;
+ 	font-size: 0.7rem;
+ 	padding: 10px 0;
+ 	margin-top: 5px;
  }
  .btn-action-palette:hover { background: #f0f0f0; border-color: #aaa; }
 
  .loading-overlay {
-  position: fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(255,255,255,0.9);
-  display: none; justify-content: center; align-items: center;
-  z-index: 200; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
-  color: #111;
+ 	position: fixed; top:0; left:0; width:100%; height:100%;
+ 	background: rgba(255,255,255,0.9);
+ 	display: none; justify-content: center; align-items: center;
+ 	z-index: 200; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+ 	color: #111;
  }
 
  .checkbox-wrapper {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 0.8rem; font-weight: 600; cursor: pointer;
-  margin-bottom: 0;
+ 	display: flex; align-items: center; gap: 10px;
+ 	font-size: 0.8rem; font-weight: 600; cursor: pointer;
+ 	margin-bottom: 0;
  }
  .checkbox-wrapper input { accent-color: #000; }
 
  /* --- MOCKUP SLIDER STYLES --- */
  .mockup-modal {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.9);
-  backdrop-filter: blur(8px);
-  z-index: 300;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+ 	position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+ 	background: rgba(0,0,0,0.9);
+ 	backdrop-filter: blur(8px);
+ 	z-index: 300;
+ 	display: none;
+ 	justify-content: center;
+ 	align-items: center;
+ 	flex-direction: column;
  }
 
  .slider-container {
-  position: relative;
-  width: 800px;
-  height: 600px;
-  max-width: 95vw;
-  max-height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 	position: relative;
+ 	width: 800px;
+ 	height: 600px;
+ 	max-width: 95vw;
+ 	max-height: 60vh;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
  }
 
  .slide-wrapper {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 	position: absolute;
+ 	top: 0; left: 0;
+ 	width: 100%; height: 100%;
+ 	opacity: 0;
+ 	transition: opacity 0.4s ease-in-out;
+ 	pointer-events: none;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
  }
  .slide-wrapper.active {
-  opacity: 1;
-  pointer-events: auto;
+ 	opacity: 1;
+ 	pointer-events: auto;
  }
 
  .mockup-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+ 	max-width: 100%;
+ 	max-height: 100%;
+ 	object-fit: contain;
+ 	box-shadow: 0 20px 50px rgba(0,0,0,0.5);
  }
 
  /* Slider Navigation */
  .slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.1);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-  z-index: 10;
+ 	position: absolute;
+ 	top: 50%;
+ 	transform: translateY(-50%);
+ 	background: rgba(255,255,255,0.1);
+ 	color: white;
+ 	border: 1px solid rgba(255,255,255,0.3);
+ 	width: 50px; height: 50px;
+ 	border-radius: 50%;
+ 	cursor: pointer;
+ 	font-size: 1.2rem;
+ 	display: flex; align-items: center; justify-content: center;
+ 	transition: all 0.2s;
+ 	z-index: 10;
  }
  .slider-btn:hover { background: rgba(255,255,255,0.3); border-color: white; }
  .prev-btn { left: -70px; }
  .next-btn { right: -70px; }
 
  .slide-label {
-  position: absolute;
-  bottom: -40px;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-weight: 300;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
+ 	position: absolute;
+ 	bottom: -40px;
+ 	width: 100%;
+ 	text-align: center;
+ 	color: white;
+ 	font-weight: 300;
+ 	letter-spacing: 2px;
+ 	font-size: 0.9rem;
+ 	text-transform: uppercase;
  }
 
  .mockup-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 60px;
-  z-index: 310;
+ 	display: flex;
+ 	gap: 15px;
+ 	margin-top: 60px;
+ 	z-index: 310;
  }
  .btn-mockup-action {
-  background: white;
-  color: black;
-  border: none;
-  padding: 14px 28px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+ 	background: white;
+ 	color: black;
+ 	border: none;
+ 	padding: 14px 28px;
+ 	font-size: 0.8rem;
+ 	font-weight: 800;
+ 	letter-spacing: 1px;
  }
  .btn-mockup-action:hover { background: #eee; transform: scale(1.05); }
  .btn-mockup-close { background: #333; color: white; }
  .btn-mockup-close:hover { background: #000; }
 
  @media (max-width: 900px) {
-  .prev-btn { left: 10px; background: rgba(0,0,0,0.5); }
-  .next-btn { right: 10px; background: rgba(0,0,0,0.5); }
+ 	.prev-btn { left: 10px; background: rgba(0,0,0,0.5); }
+ 	.next-btn { right: 10px; background: rgba(0,0,0,0.5); }
  }
 
  /* --- FOOTER INFORMATION STYLES --- */
  .project-info {
-  margin-top: auto; 
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #a0a0a0;
-  line-height: 1.6;
+ 	/* Pushes the footer to the bottom of the sidebar */
+ 	margin-top: auto; 
+ 	padding-top: 20px;
+ 	border-top: 1px solid #eee;
+ 	font-size: 0.6rem;
+ 	text-transform: uppercase;
+ 	letter-spacing: 1.5px;
+ 	color: #a0a0a0;
+ 	line-height: 1.6;
  }
  .project-info strong {
-  color: #333;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 5px;
+ 	color: #333;
+ 	font-weight: 700;
+ 	display: block;
+ 	margin-bottom: 5px;
  }
  .participants {
-  margin-top: 5px;
+ 	margin-top: 5px;
  }
 
 </style>
@@ -365,93 +375,93 @@
 
 <aside id="controls">
  <div>
-  <div class="section-title">01. Collection</div>
-  <select id="patternSelect">
-   <option value="classic">Slender Flower</option>
-   <option value="flower">Soft Flower</option>
-   <option value="crystal">Polar Ray Star</option>
-   <option value="lotus">Sacred Lotus</option>
-   <option value="sunburst">Royal Sunburst</option>
-   <option value="deco">Art Deco</option>
-   <option value="ornament">Ornamental Curve</option>
-   <option value="illusion">Optical Illusion 1 (Cross)</option>
-   <option value="illusion2">Optical Illusion 2 (Lines)</option>
-  </select>
+ 	<div class="section-title">01. Collection</div>
+ 	<select id="patternSelect">
+ 	 <option value="classic">Slender Flower</option>
+ 	 <option value="flower">Soft Flower</option>
+ 	 <option value="crystal">Polar Ray Star</option>
+ 	 <option value="lotus">Sacred Lotus</option>
+ 	 <option value="sunburst">Royal Sunburst</option>
+ 	 <option value="deco">Art Deco</option>
+ 	 <option value="ornament">Ornamental Curve</option>
+ 	 <option value="illusion">Optical Illusion 1 (Cross)</option>
+ 	 <option value="illusion2">Optical Illusion 2 (Lines)</option>
+ 	</select>
  </div>
 
  <div>
-  <div class="section-title">02. Geometry</div>
-  <div class="control-row">
-   <div class="label-row">
-    <span>Scale</span>
-    <span id="scaleValue" class="value-text">0.35</span>
-   </div>
-   <input type="range" id="scaleSlider" min="0.1" max="0.8" step="0.01" value="0.35">
-  </div>
-  <div class="control-row">
-   <div class="label-row">
-    <span>Spacing</span>
-    <span id="spacingValue" class="value-text">1.3</span>
-   </div>
-   <input type="range" id="spacingSlider" min="0.8" max="4.0" step="0.1" value="1.3">
-  </div>
-  <div class="control-row">
-   <div class="label-row">
-    <span>Rotation</span>
-    <span id="rotateValue" class="value-text">0°</span>
-   </div>
-   <input type="range" id="rotationSlider" min="0" max="360" step="1" value="0">
-  </div>
-  <label class="checkbox-wrapper">
-   <input type="checkbox" id="autoSpinCheck"> Auto Spin Animation
-  </label>
+ 	<div class="section-title">02. Geometry</div>
+ 	<div class="control-row">
+ 	 <div class="label-row">
+ 	 	<span>Scale</span>
+ 	 	<span id="scaleValue" class="value-text">0.35</span>
+ 	 </div>
+ 	 <input type="range" id="scaleSlider" min="0.1" max="0.8" step="0.01" value="0.35">
+ 	</div>
+ 	<div class="control-row">
+ 	 <div class="label-row">
+ 	 	<span>Spacing</span>
+ 	 	<span id="spacingValue" class="value-text">1.3</span>
+ 	 </div>
+ 	 <input type="range" id="spacingSlider" min="0.8" max="4.0" step="0.1" value="1.3">
+ 	</div>
+ 	<div class="control-row">
+ 	 <div class="label-row">
+ 	 	<span>Rotation</span>
+ 	 	<span id="rotateValue" class="value-text">0°</span>
+ 	 </div>
+ 	 <input type="range" id="rotationSlider" min="0" max="360" step="1" value="0">
+ 	</div>
+ 	<label class="checkbox-wrapper">
+ 	 <input type="checkbox" id="autoSpinCheck"> Auto Spin Animation
+ 	</label>
  </div>
 
  <div>
-  <div class="section-title">03. Palette</div>
-  <div class="palette-group">
-   <div class="palette-grid">
-    <div class="color-item">
-     <div class="color-wrapper"><input type="color" id="bgColorPicker" value="#F5F5F5"></div>
-     <span class="color-name">BG</span>
-    </div>
-    <div class="color-item">
-     <div class="color-wrapper"><input type="color" id="fillLightPicker" value="#DADCC6"></div>
-     <span class="color-name">Main</span>
-    </div>
-    <div class="color-item">
-     <div class="color-wrapper"><input type="color" id="fillShadowPicker" value="#88948B"></div>
-     <span class="color-name">Sub</span>
-    </div>
-    <div class="color-item">
-     <div class="color-wrapper"><input type="color" id="strokePicker" value="#88948B"></div>
-     <span class="color-name">Line</span>
-    </div>
-    <div class="color-item">
-     <div class="color-wrapper"><input type="color" id="centerDarkPicker" value="#54555B"></div>
-     <span class="color-name">Core</span>
-    </div>
-   </div>
-   
-   <label class="checkbox-wrapper">
-    <input type="checkbox" id="invertColorsCheck"> Invert Colors
-   </label>
-   
-   <button class="btn-action-palette" onclick="randomize()">Randomize Colors</button>
-   <button class="btn-reset" onclick="resetColors()">↺ RESET COLORS</button>
-  </div>
+ 	<div class="section-title">03. Palette</div>
+ 	<div class="palette-group">
+ 	 <div class="palette-grid">
+ 	 	<div class="color-item">
+ 	 	 <div class="color-wrapper"><input type="color" id="bgColorPicker" value="#F5F5F5"></div>
+ 	 	 <span class="color-name">BG</span>
+ 	 	</div>
+ 	 	<div class="color-item">
+ 	 	 <div class="color-wrapper"><input type="color" id="fillLightPicker" value="#DADCC6"></div>
+ 	 	 <span class="color-name">Main</span>
+ 	 	</div>
+ 	 	<div class="color-item">
+ 	 	 <div class="color-wrapper"><input type="color" id="fillShadowPicker" value="#88948B"></div>
+ 	 	 <span class="color-name">Sub</span>
+ 	 	</div>
+ 	 	<div class="color-item">
+ 	 	 <div class="color-wrapper"><input type="color" id="strokePicker" value="#88948B"></div>
+ 	 	 <span class="color-name">Line</span>
+ 	 	</div>
+ 	 	<div class="color-item">
+ 	 	 <div class="color-wrapper"><input type="color" id="centerDarkPicker" value="#54555B"></div>
+ 	 	 <span class="color-name">Core</span>
+ 	 	</div>
+ 	 </div>
+ 	 
+ 	 <label class="checkbox-wrapper">
+ 	 	<input type="checkbox" id="invertColorsCheck"> Invert Colors
+ 	 </label>
+ 	 
+ 	 <button class="btn-action-palette" onclick="randomize()">Randomize Colors</button>
+ 	 <button class="btn-reset" onclick="resetColors()">↺ RESET COLORS</button>
+ 	</div>
  </div>
 
  <div>
-  <div class="section-title">04. Mockup</div>
-  <div class="btn-group">
-   <button class="btn-secondary" onclick="openMockup()">Mockup</button>
-   <button class="btn-primary" onclick="openStaticMockup()">Mockup Image</button>
-  </div>
+ 	<div class="section-title">04. Mockup</div>
+ 	<div class="btn-group">
+ 	 <button class="btn-secondary" onclick="openMockup()">Mockup</button>
+ 	 <button class="btn-primary" onclick="openStaticMockup()">Mockup Image</button>
+ 	</div>
  </div>
 
  <div>
-  <button class="btn-primary" onclick="savePattern()" style="width: 100%;">Save Image</button>
+ 	<button class="btn-primary" onclick="savePattern()" style="width: 100%;">Save Image</button>
  </div>
 
  <div class="project-info">
@@ -469,44 +479,43 @@
 
 <div class="mockup-modal" id="mockupModal">
  <div class="slider-container">
-  <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-  
-  <div class="slide-wrapper active" id="slide-0">
-   <img id="img-mug" class="mockup-image" src="" alt="Mug Mockup">
-   <div class="slide-label">01. CERAMIC MUG</div>
-  </div>
-  
-  <div class="slide-wrapper" id="slide-1">
-   <img id="img-mat" class="mockup-image" src="" alt="Mat Mockup">
-   <div class="slide-label">02. DESK MAT</div>
-  </div>
-  
-  <div class="slide-wrapper" id="slide-2">
-   <img id="img-ecobag" class="mockup-image" src="" alt="Eco Bag Mockup">
-   <div class="slide-label">03. CANVAS TOTE BAG</div>
-  </div>
+ 	<button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+ 	
+ 	<div class="slide-wrapper active" id="slide-0">
+ 	 <img id="img-mug" class="mockup-image" src="" alt="Mug Mockup">
+ 	 <div class="slide-label">01. CERAMIC MUG</div>
+ 	</div>
+ 	
+ 	<div class="slide-wrapper" id="slide-1">
+ 	 <img id="img-mat" class="mockup-image" src="" alt="Mat Mockup">
+ 	 <div class="slide-label">02. DESK MAT</div>
+ 	</div>
+ 	
+ 	<div class="slide-wrapper" id="slide-2">
+ 	 <img id="img-ecobag" class="mockup-image" src="" alt="Eco Bag Mockup">
+ 	 <div class="slide-label">03. CANVAS TOTE BAG</div>
+ 	</div>
 
-  <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+ 	<button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
  </div>
 
  <div class="mockup-actions">
-  <button class="btn-mockup-action" onclick="downloadCurrentMockup()">DOWNLOAD</button>
-  <button class="btn-mockup-action btn-mockup-close" onclick="closeMockup()">CLOSE</button>
+ 	<button class="btn-mockup-action" onclick="downloadCurrentMockup()">DOWNLOAD</button>
+ 	<button class="btn-mockup-action btn-mockup-close" onclick="closeMockup()">CLOSE</button>
  </div>
 </div>
 
 <div class="mockup-modal" id="staticMockupModal">
  <div class="slider-container">
-  <button class="slider-btn prev-btn" onclick="changeStaticSlide(-1)">&#10094;</button>
-  
-  <img id="static-mockup-img" class="mockup-image" src="" alt="Static Mockup" style="max-height: 100%; max-width: 100%;">
-  
-  <button class="slider-btn next-btn" onclick="changeStaticSlide(1)">&#10095;</button>
+ 	<button class="slider-btn prev-btn" onclick="changeStaticSlide(-1)">&#10094;</button>
+ 	
+ 	<img id="static-mockup-img" class="mockup-image" src="" alt="Static Mockup" style="max-height: 100%; max-width: 100%;">
+ 	
+ 	<button class="slider-btn next-btn" onclick="changeStaticSlide(1)">&#10095;</button>
  </div>
  
  <div class="mockup-actions">
-  <button class="btn-mockup-action" onclick="downloadStaticMockup()">DOWNLOAD</button>
-  <button class="btn-mockup-action btn-mockup-close" onclick="closeStaticMockup()">CLOSE</button>
+ 	<button class="btn-mockup-action btn-mockup-close" onclick="closeStaticMockup()">CLOSE</button>
  </div>
 </div>
 
@@ -518,7 +527,7 @@
  const mockupModal = document.getElementById('mockupModal');
  const staticMockupModal = document.getElementById('staticMockupModal');
 
- // --- SVG ASSETS ---
+ // --- SVG ASSETS (Updated with Fixes) ---
  const mugOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='mugShade' x1='10%25' y1='0%25' x2='90%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.15'/><stop offset='30%25' stop-color='white' stop-opacity='0.02'/><stop offset='50%25' stop-color='black' stop-opacity='0.05'/><stop offset='100%25' stop-color='black' stop-opacity='0.5'/></linearGradient><linearGradient id='handleShade' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.4'/><stop offset='30%25' stop-color='black' stop-opacity='0.0'/><stop offset='100%25' stop-color='black' stop-opacity='0.5'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M220 80 A 180 25 0 0 1 580 80 Q580 80 580 100 L560 500 Q560 540 400 540 Q240 540 240 500 L220 100 Q220 80 220 80 Z M579 120 C700 120 700 380 566 380 L567 330 C639 330 639 170 576 170 Z'/><path fill='url(%23mugShade)' style='mix-blend-mode: multiply;' d='M220 80 L580 80 Q580 80 580 100 L560 500 Q560 540 400 540 Q240 540 240 500 L220 100 Q220 80 220 80 Z'/><path fill='url(%23handleShade)' style='mix-blend-mode: multiply;' d='M579 120 C700 120 700 380 566 380 L567 330 C639 330 639 170 576 170 Z'/><ellipse cx='400' cy='80' rx='165' ry='20' fill='black' fill-opacity='0.2'/></svg>`;
  const matOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='matShade' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.2'/><stop offset='50%25' stop-color='black' stop-opacity='0.05'/><stop offset='100%25' stop-color='black' stop-opacity='0.4'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M100 150 A20 20 0 0 1 120 130 L680 130 A20 20 0 0 1 700 150 L700 450 A20 20 0 0 1 680 470 L120 470 A20 20 0 0 1 100 450 Z'/><rect x='100' y='130' width='600' height='340' rx='20' ry='20' fill='url(%23matShade)' style='mix-blend-mode: multiply;' viewBox='0 0 800 600'/><rect x='100' y='130' width='600' height='340' rx='20' ry='20' fill='none' stroke='black' stroke-opacity='0.1' stroke-width='4'/><rect x='105' y='135' width='590' height='330' rx='15' ry='15' fill='none' stroke='white' stroke-opacity='0.2' stroke-width='2' stroke-dasharray='5,5'/></svg>`;
  const ecoBagOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='bagShade' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.2'/><stop offset='100%25' stop-color='black' stop-opacity='0.35'/></linearGradient><linearGradient id='strapShade' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.15'/><stop offset='100%25' stop-color='black' stop-opacity='0.2'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M220 180 L220 550 Q220 580 250 580 L550 580 Q580 580 580 550 L580 180 L510 180 L510 60 C510 10 290 10 290 60 L290 180 L220 180 Z M340 180 L340 60 C340 30 460 30 460 60 L460 180 Z'/><path fill='url(%23bagShade)' style='mix-blend-mode:multiply;' d='M220 180 L220 550 Q220 580 250 580 L550 580 Q580 580 580 550 L580 180 Z'/><path fill='url(%23strapShade)' style='mix-blend-mode:multiply;' d='M510 180 L510 60 C510 10 290 10 290 60 L290 180 L340 180 L340 60 C340 30 460 30 460 60 L460 180 Z'/><path d='M225 190 H575' stroke='black' stroke-width='1' stroke-dasharray='4 4' opacity='0.3'/></svg>`;
@@ -526,37 +535,37 @@
 
  // UI References
  const ui = {
-  type: document.getElementById('patternSelect'),
-  scale: document.getElementById('scaleSlider'),
-  spacing: document.getElementById('spacingSlider'),
-  rotation: document.getElementById('rotationSlider'),
-  autoSpin: document.getElementById('autoSpinCheck'),
-  invertColors: document.getElementById('invertColorsCheck'),
-  bg: document.getElementById('bgColorPicker'),
-  fillLight: document.getElementById('fillLightPicker'),
-  fillShadow: document.getElementById('fillShadowPicker'),
-  stroke: document.getElementById('strokePicker'),
-  center: document.getElementById('centerDarkPicker'),
-  dispScale: document.getElementById('scaleValue'),
-  dispSpacing: document.getElementById('spacingValue'),
-  dispRotate: document.getElementById('rotateValue')
+ 	type: document.getElementById('patternSelect'),
+ 	scale: document.getElementById('scaleSlider'),
+ 	spacing: document.getElementById('spacingSlider'),
+ 	rotation: document.getElementById('rotationSlider'),
+ 	autoSpin: document.getElementById('autoSpinCheck'),
+ 	invertColors: document.getElementById('invertColorsCheck'),
+ 	bg: document.getElementById('bgColorPicker'),
+ 	fillLight: document.getElementById('fillLightPicker'),
+ 	fillShadow: document.getElementById('fillShadowPicker'),
+ 	stroke: document.getElementById('strokePicker'),
+ 	center: document.getElementById('centerDarkPicker'),
+ 	dispScale: document.getElementById('scaleValue'),
+ 	dispSpacing: document.getElementById('spacingValue'),
+ 	dispRotate: document.getElementById('rotateValue')
  };
 
  // Configuration State
  let config = {
-  type: ui.type.value,
-  scale: parseFloat(ui.scale.value),
-  spacing: parseFloat(ui.spacing.value),
-  rotation: parseFloat(ui.rotation.value),
-  isAnimating: false,
-  baseSize: 600,
-  colors: {
-   bg: ui.bg.value,
-   fillLight: ui.fillLight.value,
-   fillShadow: ui.fillShadow.value,
-   stroke: ui.stroke.value,
-   center: ui.center.value
-  }
+ 	type: ui.type.value,
+ 	scale: parseFloat(ui.scale.value),
+ 	spacing: parseFloat(ui.spacing.value),
+ 	rotation: parseFloat(ui.rotation.value),
+ 	isAnimating: false,
+ 	baseSize: 600,
+ 	colors: {
+ 	 bg: ui.bg.value,
+ 	 fillLight: ui.fillLight.value,
+ 	 fillShadow: ui.fillShadow.value,
+ 	 stroke: ui.stroke.value,
+ 	 center: ui.center.value
+ 	}
  };
 
  // ----------------------------------------------------------------
@@ -564,421 +573,421 @@
  // ----------------------------------------------------------------
 
  function invertHex(hex) {
-  if (!hex) return '#000000';
-  if (hex.indexOf('#') === 0) hex = hex.slice(1);
-  const r = (255 - parseInt(hex.substring(0, 2), 16)).toString(16).padStart(2, '0');
-  const g = (255 - parseInt(hex.substring(2, 4), 16)).toString(16).padStart(2, '0');
-  const b = (255 - parseInt(hex.substring(4, 6), 16)).toString(16).padStart(2, '0');
-  return '#' + r + g + b;
+ 	if (!hex) return '#000000';
+ 	if (hex.indexOf('#') === 0) hex = hex.slice(1);
+ 	const r = (255 - parseInt(hex.substring(0, 2), 16)).toString(16).padStart(2, '0');
+ 	const g = (255 - parseInt(hex.substring(2, 4), 16)).toString(16).padStart(2, '0');
+ 	const b = (255 - parseInt(hex.substring(4, 6), 16)).toString(16).padStart(2, '0');
+ 	return '#' + r + g + b;
  }
 
  // ----------------------------------------------------------------
- // DRAWING LOGIC (All Patterns)
+ // DRAWING LOGIC
  // ----------------------------------------------------------------
 
  function drawSlender(ctx, colors) {
-  const numPoints = 12;
-  const angleStep = (Math.PI * 2) / numPoints;
-  for (let i = 0; i < numPoints; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.moveTo(0, 30);
-   ctx.quadraticCurveTo(40, 100, 20, 250);
-   ctx.quadraticCurveTo(10, 280, 0, 300);
-   ctx.quadraticCurveTo(-10, 280, -20, 250);
-   ctx.quadraticCurveTo(-40, 100, 0, 30);
-   ctx.fillStyle = colors.fillLight; ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.lineWidth = 1.5; ctx.stroke();
-   
-   ctx.beginPath(); ctx.arc(0, 300, 5, 0, Math.PI*2);
-   ctx.fillStyle = colors.fillShadow; ctx.fill();
-   ctx.restore();
-  }
-  ctx.fillStyle = colors.center;
-  ctx.beginPath(); ctx.arc(0, 0, 25, 0, Math.PI * 2); ctx.fill();
+ 	const numPoints = 12;
+ 	const angleStep = (Math.PI * 2) / numPoints;
+ 	for (let i = 0; i < numPoints; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 30);
+ 	 ctx.quadraticCurveTo(40, 100, 20, 250);
+ 	 ctx.quadraticCurveTo(10, 280, 0, 300);
+ 	 ctx.quadraticCurveTo(-10, 280, -20, 250);
+ 	 ctx.quadraticCurveTo(-40, 100, 0, 30);
+ 	 ctx.fillStyle = colors.fillLight; ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.lineWidth = 1.5; ctx.stroke();
+ 	
+ 	 ctx.beginPath(); ctx.arc(0, 300, 5, 0, Math.PI*2);
+ 	 ctx.fillStyle = colors.fillShadow; ctx.fill();
+ 	 ctx.restore();
+ 	}
+ 	ctx.fillStyle = colors.center;
+ 	ctx.beginPath(); ctx.arc(0, 0, 25, 0, Math.PI * 2); ctx.fill();
  }
 
  function drawFlower(ctx, colors) {
-  const petals = 8;
-  const angleStep = (Math.PI * 2) / petals;
-  for (let i = 0; i < petals; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.moveTo(0, 0);
-   ctx.bezierCurveTo(60, 80, 80, 200, 0, 280);
-   ctx.bezierCurveTo(-80, 200, -60, 80, 0, 0);
-   ctx.fillStyle = colors.fillLight; ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.lineWidth = 2; ctx.stroke();
-   
-   ctx.beginPath();
-   ctx.moveTo(0, 50);
-   ctx.quadraticCurveTo(30, 150, 0, 230);
-   ctx.quadraticCurveTo(-30, 150, 0, 50);
-   ctx.fillStyle = colors.fillShadow; ctx.fill();
-   ctx.restore();
-  }
-  ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI * 2); ctx.fillStyle = colors.center; ctx.fill();
+ 	const petals = 8;
+ 	const angleStep = (Math.PI * 2) / petals;
+ 	for (let i = 0; i < petals; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 0);
+ 	 ctx.bezierCurveTo(60, 80, 80, 200, 0, 280);
+ 	 ctx.bezierCurveTo(-80, 200, -60, 80, 0, 0);
+ 	 ctx.fillStyle = colors.fillLight; ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.lineWidth = 2; ctx.stroke();
+ 	
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 50);
+ 	 ctx.quadraticCurveTo(30, 150, 0, 230);
+ 	 ctx.quadraticCurveTo(-30, 150, 0, 50);
+ 	 ctx.fillStyle = colors.fillShadow; ctx.fill();
+ 	 ctx.restore();
+ 	}
+ 	ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI * 2); ctx.fillStyle = colors.center; ctx.fill();
  }
 
  function drawStar(ctx, colors) {
-  const numPoints = 8;
-  const rayLength = 300;
-  const rayWidth = 24;
-  const angleStep = (Math.PI * 2) / numPoints;
-  
-  ctx.fillStyle = colors.fillLight;
-  ctx.strokeStyle = colors.stroke;
-  ctx.lineWidth = 1;
+ 	const numPoints = 8;
+ 	const rayLength = 300;
+ 	const rayWidth = 24;
+ 	const angleStep = (Math.PI * 2) / numPoints;
+ 	
+ 	ctx.fillStyle = colors.fillLight;
+ 	ctx.strokeStyle = colors.stroke;
+ 	ctx.lineWidth = 1;
 
-  for (let i = 0; i < numPoints; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.moveTo(-rayWidth, 0);
-   ctx.lineTo(0, -rayLength);
-   ctx.lineTo(rayWidth, 0);
-   ctx.closePath();
-   ctx.fill();
-   ctx.restore();
-  }
-  const centerRadius = 25;
-  ctx.beginPath();
-  ctx.arc(0, 0, centerRadius, 0, Math.PI * 2);
-  ctx.fillStyle = colors.center;
-  ctx.fill();
+ 	for (let i = 0; i < numPoints; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(-rayWidth, 0);
+ 	 ctx.lineTo(0, -rayLength);
+ 	 ctx.lineTo(rayWidth, 0);
+ 	 ctx.closePath();
+ 	 ctx.fill();
+ 	 ctx.restore();
+ 	}
+ 	const centerRadius = 25;
+ 	ctx.beginPath();
+ 	ctx.arc(0, 0, centerRadius, 0, Math.PI * 2);
+ 	ctx.fillStyle = colors.center;
+ 	ctx.fill();
  }
 
  function drawLotus(ctx, colors) {
-  const petals = 16;
-  const angleStep = (Math.PI * 2) / petals;
-  for (let i = 0; i < petals; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i + angleStep/2);
-   ctx.beginPath();
-   ctx.moveTo(0, 0);
-   ctx.quadraticCurveTo(40, 120, 0, 260);
-   ctx.quadraticCurveTo(-40, 120, 0, 0);
-   ctx.fillStyle = colors.fillShadow; ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.stroke();
-   ctx.restore();
-  }
-  for (let i = 0; i < petals; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.moveTo(0, 0);
-   ctx.bezierCurveTo(30, 80, 50, 180, 0, 220);
-   ctx.bezierCurveTo(-50, 180, -30, 80, 0, 0);
-   ctx.fillStyle = colors.fillLight; ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.stroke();
-   ctx.beginPath(); ctx.moveTo(0,180); ctx.lineTo(0, 210); ctx.stroke();
-   ctx.restore();
-  }
-  ctx.beginPath(); ctx.arc(0, 0, 15, 0, Math.PI * 2); ctx.fillStyle = colors.center; ctx.fill();
+ 	const petals = 16;
+ 	const angleStep = (Math.PI * 2) / petals;
+ 	for (let i = 0; i < petals; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i + angleStep/2);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 0);
+ 	 ctx.quadraticCurveTo(40, 120, 0, 260);
+ 	 ctx.quadraticCurveTo(-40, 120, 0, 0);
+ 	 ctx.fillStyle = colors.fillShadow; ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	for (let i = 0; i < petals; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 0);
+ 	 ctx.bezierCurveTo(30, 80, 50, 180, 0, 220);
+ 	 ctx.bezierCurveTo(-50, 180, -30, 80, 0, 0);
+ 	 ctx.fillStyle = colors.fillLight; ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.stroke();
+ 	 ctx.beginPath(); ctx.moveTo(0,180); ctx.lineTo(0, 210); ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	ctx.beginPath(); ctx.arc(0, 0, 15, 0, Math.PI * 2); ctx.fillStyle = colors.center; ctx.fill();
  }
 
  function drawSunburst(ctx, colors) {
-  const rays = 24;
-  const angleStep = (Math.PI * 2) / rays;
-  for (let i = 0; i < rays; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.moveTo(0, 20);
-   ctx.lineTo(15, 100);
-   ctx.lineTo(0, 320);
-   ctx.lineTo(-15, 100);
-   ctx.lineTo(0, 20);
-   ctx.fillStyle = (i % 2 === 0) ? colors.fillLight : colors.fillShadow;
-   ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.stroke();
-   ctx.restore();
-  }
-  ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI*2);
-  ctx.lineWidth = 4; ctx.strokeStyle = colors.center; ctx.stroke();
-  ctx.fillStyle = colors.bg; ctx.fill();
-  ctx.beginPath(); ctx.arc(0, 0, 20, 0, Math.PI*2);
-  ctx.fillStyle = colors.center; ctx.fill();
+ 	const rays = 24;
+ 	const angleStep = (Math.PI * 2) / rays;
+ 	for (let i = 0; i < rays; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 20);
+ 	 ctx.lineTo(15, 100);
+ 	 ctx.lineTo(0, 320);
+ 	 ctx.lineTo(-15, 100);
+ 	 ctx.lineTo(0, 20);
+ 	 ctx.fillStyle = (i % 2 === 0) ? colors.fillLight : colors.fillShadow;
+ 	 ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI*2);
+ 	ctx.lineWidth = 4; ctx.strokeStyle = colors.center; ctx.stroke();
+ 	ctx.fillStyle = colors.bg; ctx.fill();
+ 	ctx.beginPath(); ctx.arc(0, 0, 20, 0, Math.PI*2);
+ 	ctx.fillStyle = colors.center; ctx.fill();
  }
 
  function drawDeco(ctx, colors) {
-  ctx.beginPath(); ctx.arc(0, 0, 280, 0, Math.PI*2);
-  ctx.strokeStyle = colors.stroke; ctx.lineWidth = 1; ctx.stroke();
-  const spokes = 8;
-  const angleStep = (Math.PI * 2) / spokes;
-  for (let i = 0; i < spokes; i++) {
-   ctx.save();
-   ctx.rotate(angleStep * i);
-   ctx.beginPath();
-   ctx.rect(-20, 50, 40, 150);
-   ctx.fillStyle = colors.fillLight; ctx.fill();
-   ctx.strokeStyle = colors.stroke; ctx.stroke();
-   ctx.beginPath();
-   ctx.moveTo(-10, 60); ctx.lineTo(-10, 190);
-   ctx.moveTo(10, 60); ctx.lineTo(10, 190);
-   ctx.strokeStyle = colors.fillShadow; ctx.stroke();
-   ctx.beginPath(); ctx.arc(0, 220, 15, 0, Math.PI*2);
-   ctx.fillStyle = colors.fillShadow; ctx.fill(); ctx.stroke();
-   ctx.restore();
-  }
-  ctx.beginPath(); ctx.arc(0, 0, 60, 0, Math.PI*2);
-  ctx.fillStyle = colors.fillShadow; ctx.fill(); ctx.stroke();
-  ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI*2);
-  ctx.fillStyle = colors.fillLight; ctx.fill(); ctx.stroke();
-  ctx.beginPath(); ctx.rect(-10, -10, 20, 20);
-  ctx.fillStyle = colors.center; ctx.fill();
+ 	ctx.beginPath(); ctx.arc(0, 0, 280, 0, Math.PI*2);
+ 	ctx.strokeStyle = colors.stroke; ctx.lineWidth = 1; ctx.stroke();
+ 	const spokes = 8;
+ 	const angleStep = (Math.PI * 2) / spokes;
+ 	for (let i = 0; i < spokes; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(angleStep * i);
+ 	 ctx.beginPath();
+ 	 ctx.rect(-20, 50, 40, 150);
+ 	 ctx.fillStyle = colors.fillLight; ctx.fill();
+ 	 ctx.strokeStyle = colors.stroke; ctx.stroke();
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(-10, 60); ctx.lineTo(-10, 190);
+ 	 ctx.moveTo(10, 60); ctx.lineTo(10, 190);
+ 	 ctx.strokeStyle = colors.fillShadow; ctx.stroke();
+ 	 ctx.beginPath(); ctx.arc(0, 220, 15, 0, Math.PI*2);
+ 	 ctx.fillStyle = colors.fillShadow; ctx.fill(); ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	ctx.beginPath(); ctx.arc(0, 0, 60, 0, Math.PI*2);
+ 	ctx.fillStyle = colors.fillShadow; ctx.fill(); ctx.stroke();
+ 	ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI*2);
+ 	ctx.fillStyle = colors.fillLight; ctx.fill(); ctx.stroke();
+ 	ctx.beginPath(); ctx.rect(-10, -10, 20, 20);
+ 	ctx.fillStyle = colors.center; ctx.fill();
  }
 
  function drawOrnament(ctx, colors) {
-  ctx.scale(1.2, 1.2);
-  const outerCount = 12;
-  ctx.fillStyle = colors.fillLight;
-  ctx.strokeStyle = colors.stroke;
-  ctx.lineWidth = 1.8;
-  for(let i=0; i<outerCount; i++){
-   ctx.save();
-   ctx.rotate((Math.PI*2/outerCount) * i);
-   ctx.beginPath();
-   ctx.moveTo(0, -180);
-   ctx.bezierCurveTo(10, -270, 1, -20, 130, -80);
-   ctx.bezierCurveTo(100, -90, 30, -10, 0, 0);
-   ctx.bezierCurveTo(-30, -10, -50, -40, -80, -10);
-   ctx.bezierCurveTo(-90, -180, -30, -160, 0, -180);
-   ctx.fill();
-   ctx.stroke();
-   ctx.restore();
-  }
-  const innerCount = 3;
-  ctx.fillStyle = colors.fillShadow;
-  ctx.strokeStyle = colors.stroke;
-  ctx.lineWidth = 2;
-  for(let i=0; i<innerCount; i++){
-   ctx.save();
-   ctx.rotate((Math.PI*2/innerCount) * i);
-   ctx.beginPath();
-   ctx.moveTo(0, -40);
-   ctx.bezierCurveTo(0, -40, 80, 10, 10, 90);
-   ctx.bezierCurveTo(-40, 40, -20, -10, 0, -40);
-   ctx.fill();
-   ctx.stroke();
-   ctx.restore();
-  }
-  ctx.save();
-  ctx.setLineDash([4, 2]);
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = colors.stroke;
-  ctx.beginPath();
-  ctx.moveTo(0, -56);
-  ctx.bezierCurveTo(40, -40, 40, 40, 0, 56);
-  ctx.bezierCurveTo(-40, 40, -40, -40, 0, -56);
-  ctx.stroke();
-  ctx.restore();
-  ctx.fillStyle = colors.stroke;
-  const ornamentCoords = [[28,-28], [28,28], [-28,28], [-28,-28]];
-  ornamentCoords.forEach(pos => {
-   ctx.beginPath(); ctx.arc(pos[0], pos[1], 4, 0, Math.PI*2); ctx.fill();
-  });
-  ctx.fillStyle = colors.center;
-  const dotCoords = [[0,-56], [56,0], [0,56], [-56,0]];
-  dotCoords.forEach(pos => {
-   ctx.beginPath(); ctx.arc(pos[0], pos[1], 6, 0, Math.PI*2); ctx.fill();
-  });
+ 	ctx.scale(1.2, 1.2);
+ 	const outerCount = 12;
+ 	ctx.fillStyle = colors.fillLight;
+ 	ctx.strokeStyle = colors.stroke;
+ 	ctx.lineWidth = 1.8;
+ 	for(let i=0; i<outerCount; i++){
+ 	 ctx.save();
+ 	 ctx.rotate((Math.PI*2/outerCount) * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, -180);
+ 	 ctx.bezierCurveTo(10, -270, 1, -20, 130, -80);
+ 	 ctx.bezierCurveTo(100, -90, 30, -10, 0, 0);
+ 	 ctx.bezierCurveTo(-30, -10, -50, -40, -80, -10);
+ 	 ctx.bezierCurveTo(-90, -180, -30, -160, 0, -180);
+ 	 ctx.fill();
+ 	 ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	const innerCount = 3;
+ 	ctx.fillStyle = colors.fillShadow;
+ 	ctx.strokeStyle = colors.stroke;
+ 	ctx.lineWidth = 2;
+ 	for(let i=0; i<innerCount; i++){
+ 	 ctx.save();
+ 	 ctx.rotate((Math.PI*2/innerCount) * i);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, -40);
+ 	 ctx.bezierCurveTo(0, -40, 80, 10, 10, 90);
+ 	 ctx.bezierCurveTo(-40, 40, -20, -10, 0, -40);
+ 	 ctx.fill();
+ 	 ctx.stroke();
+ 	 ctx.restore();
+ 	}
+ 	ctx.save();
+ 	ctx.setLineDash([4, 2]);
+ 	ctx.lineWidth = 2;
+ 	ctx.strokeStyle = colors.stroke;
+ 	ctx.beginPath();
+ 	ctx.moveTo(0, -56);
+ 	ctx.bezierCurveTo(40, -40, 40, 40, 0, 56);
+ 	ctx.bezierCurveTo(-40, 40, -40, -40, 0, -56);
+ 	ctx.stroke();
+ 	ctx.restore();
+ 	ctx.fillStyle = colors.stroke;
+ 	const ornamentCoords = [[28,-28], [28,28], [-28,28], [-28,-28]];
+ 	ornamentCoords.forEach(pos => {
+ 	 ctx.beginPath(); ctx.arc(pos[0], pos[1], 4, 0, Math.PI*2); ctx.fill();
+ 	});
+ 	ctx.fillStyle = colors.center;
+ 	const dotCoords = [[0,-56], [56,0], [0,56], [-56,0]];
+ 	dotCoords.forEach(pos => {
+ 	 ctx.beginPath(); ctx.arc(pos[0], pos[1], 6, 0, Math.PI*2); ctx.fill();
+ 	});
  }
 
  function drawIllusion(ctx, colors, row, col) {
-  const gridRot = ((row + col) % 2 !== 0) ? 45 * Math.PI / 180 : 0;
-  ctx.rotate(gridRot);
-  
-  const s = 1.0;
-  ctx.scale(s, s);
+ 	const gridRot = ((row + col) % 2 !== 0) ? 45 * Math.PI / 180 : 0;
+ 	ctx.rotate(gridRot);
+ 	
+ 	const s = 1.0;
+ 	ctx.scale(s, s);
 
-  ctx.fillStyle = colors.fillLight;
-  for (let i = 0; i < 4; i++) {
-   ctx.save();
-   ctx.rotate((45 + i * 90) * Math.PI / 180);
-   ctx.beginPath();
-   ctx.moveTo(0, 40);
-   ctx.quadraticCurveTo(30, 150, 150, 270);
-   ctx.quadraticCurveTo(0, 220, -150, 270);
-   ctx.quadraticCurveTo(-30, 150, 0, 40);
-   ctx.fill();
-   ctx.restore();
-  }
+ 	ctx.fillStyle = colors.fillLight;
+ 	for (let i = 0; i < 4; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate((45 + i * 90) * Math.PI / 180);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 40);
+ 	 ctx.quadraticCurveTo(30, 150, 150, 270);
+ 	 ctx.quadraticCurveTo(0, 220, -150, 270);
+ 	 ctx.quadraticCurveTo(-30, 150, 0, 40);
+ 	 ctx.fill();
+ 	 ctx.restore();
+ 	}
 
-  ctx.fillStyle = colors.fillShadow;
-  const r = 70; const d = 140;
-  const drawC = (x,y,rad) => { ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2); ctx.fill(); };
-  drawC(0, 0, r); drawC(0, -d, r); drawC(0, d, r); drawC(-d, 0, r); drawC(d, 0, r);
+ 	ctx.fillStyle = colors.fillShadow;
+ 	const r = 70; const d = 140;
+ 	const drawC = (x,y,rad) => { ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2); ctx.fill(); };
+ 	drawC(0, 0, r); drawC(0, -d, r); drawC(0, d, r); drawC(-d, 0, r); drawC(d, 0, r);
 
-  ctx.fillStyle = colors.center;
-  ctx.strokeStyle = colors.center;
-  const lineLen = 50; const dotDist = 50; const dotR = 12;
-  ctx.lineWidth = 12; ctx.lineCap = "round";
-  ctx.beginPath(); ctx.moveTo(-lineLen, 0); ctx.lineTo(lineLen, 0); ctx.moveTo(0, -lineLen); ctx.lineTo(0, lineLen); ctx.stroke();
-  drawC(0, -dotDist, dotR); drawC(0, dotDist, dotR); drawC(-dotDist, 0, dotR); drawC(dotDist, 0, dotR); drawC(0, 0, dotR);
+ 	ctx.fillStyle = colors.center;
+ 	ctx.strokeStyle = colors.center;
+ 	const lineLen = 50; const dotDist = 50; const dotR = 12;
+ 	ctx.lineWidth = 12; ctx.lineCap = "round";
+ 	ctx.beginPath(); ctx.moveTo(-lineLen, 0); ctx.lineTo(lineLen, 0); ctx.moveTo(0, -lineLen); ctx.lineTo(0, lineLen); ctx.stroke();
+ 	drawC(0, -dotDist, dotR); drawC(0, dotDist, dotR); drawC(-dotDist, 0, dotR); drawC(dotDist, 0, dotR); drawC(0, 0, dotR);
  }
 
  function drawIllusion2(ctx, colors, row, col) {
-  if (row % 2 !== 0) ctx.rotate(45 * Math.PI / 180);
-  
-  const s = 1.2;
-  ctx.scale(s, s);
+ 	if (row % 2 !== 0) ctx.rotate(45 * Math.PI / 180);
+ 	
+ 	const s = 1.2;
+ 	ctx.scale(s, s);
 
-  // 1. Concave Triangles (Main)
-  ctx.fillStyle = colors.fillLight;
-  for (let i = 0; i < 4; i++) {
-   ctx.save();
-   ctx.rotate((45 + i * 90) * Math.PI / 180);
-   ctx.beginPath();
-   ctx.moveTo(0, 40);
-   ctx.quadraticCurveTo(-10, 150, 150, 270);
-   ctx.quadraticCurveTo(0, 150, -150, 270);
-   ctx.quadraticCurveTo(-60, 150, 0, 40);
-   ctx.fill();
+ 	// 1. Concave Triangles (Main)
+ 	ctx.fillStyle = colors.fillLight;
+ 	for (let i = 0; i < 4; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate((45 + i * 90) * Math.PI / 180);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 40);
+ 	 ctx.quadraticCurveTo(-10, 150, 150, 270);
+ 	 ctx.quadraticCurveTo(0, 150, -150, 270);
+ 	 ctx.quadraticCurveTo(-60, 150, 0, 40);
+ 	 ctx.fill();
 
-   // Thick Curves
-   ctx.strokeStyle = colors.fillLight;
-   ctx.lineWidth = 15;
-   ctx.lineCap = "round";
-   ctx.beginPath();
-   ctx.moveTo(0, 80);
-   ctx.bezierCurveTo(50, 150, 100, 50, 150, 0);
-   ctx.stroke();
-   ctx.restore();
-  }
+ 	 // Thick Curves
+ 	 ctx.strokeStyle = colors.fillLight;
+ 	 ctx.lineWidth = 15;
+ 	 ctx.lineCap = "round";
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, 80);
+ 	 ctx.bezierCurveTo(50, 150, 100, 50, 150, 0);
+ 	 ctx.stroke();
+ 	 ctx.restore();
+ 	}
 
-  // 2. Outer Circles (Sub)
-  ctx.fillStyle = colors.fillShadow;
-  const r = 30; const d = 170;
-  const drawC = (x,y) => { ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); };
-  drawC(0, -d); drawC(0, d); drawC(-d, 0); drawC(d, 0);
+ 	// 2. Outer Circles (Sub)
+ 	ctx.fillStyle = colors.fillShadow;
+ 	const r = 30; const d = 170;
+ 	const drawC = (x,y) => { ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); };
+ 	drawC(0, -d); drawC(0, d); drawC(-d, 0); drawC(d, 0);
 
-  // 3. Connecting Lines (Line Color)
-  ctx.strokeStyle = colors.stroke;
-  ctx.lineWidth = 3;
-  const circleR = 30;
-  const circleD = 170;
-  for (let i = 0; i < 4; i++) {
-   ctx.save();
-   ctx.rotate(i * 90 * Math.PI / 180);
-   ctx.beginPath();
-   ctx.moveTo(0, -circleD + circleR);
-   ctx.bezierCurveTo(30, -circleD / 2, 20, -50, 0, -80);
-   ctx.stroke();
-   ctx.restore();
-  }
+ 	// 3. Connecting Lines (Line Color)
+ 	ctx.strokeStyle = colors.stroke;
+ 	ctx.lineWidth = 3;
+ 	const circleR = 30;
+ 	const circleD = 170;
+ 	for (let i = 0; i < 4; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(i * 90 * Math.PI / 180);
+ 	 ctx.beginPath();
+ 	 ctx.moveTo(0, -circleD + circleR);
+ 	 ctx.bezierCurveTo(30, -circleD / 2, 20, -50, 0, -80);
+ 	 ctx.stroke();
+ 	 ctx.restore();
+ 	}
 
-  // 4. Central Shape (Core)
-  ctx.save();
-  const coreScale = 0.85;
-  ctx.scale(coreScale, coreScale);
+ 	// 4. Central Shape (Core)
+ 	ctx.save();
+ 	const coreScale = 0.85;
+ 	ctx.scale(coreScale, coreScale);
 
-  ctx.fillStyle = colors.center;
-  
-  // Diamond
-  ctx.beginPath();
-  ctx.moveTo(0, -80); ctx.lineTo(60, 0); ctx.lineTo(0, 80); ctx.lineTo(-60, 0);
-  ctx.closePath();
-  ctx.fill();
+ 	ctx.fillStyle = colors.center;
+ 	
+ 	// Diamond
+ 	ctx.beginPath();
+ 	ctx.moveTo(0, -80); ctx.lineTo(60, 0); ctx.lineTo(0, 80); ctx.lineTo(-60, 0);
+ 	ctx.closePath();
+ 	ctx.fill();
 
-  // Arms
-  for (let i = 0; i < 4; i++) {
-   ctx.save();
-   ctx.rotate(Math.PI / 4 + i * Math.PI / 2);
-   
-   ctx.strokeStyle = colors.center;
-   ctx.lineWidth = 4;
-   ctx.beginPath(); ctx.moveTo(-12, -35); ctx.lineTo(-26, -85); ctx.stroke();
-   ctx.beginPath(); ctx.moveTo(12, -35); ctx.lineTo(26, -85); ctx.stroke();
+ 	// Arms
+ 	for (let i = 0; i < 4; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(Math.PI / 4 + i * Math.PI / 2);
+ 	
+ 	 ctx.strokeStyle = colors.center;
+ 	 ctx.lineWidth = 4;
+ 	 ctx.beginPath(); ctx.moveTo(-12, -35); ctx.lineTo(-26, -85); ctx.stroke();
+ 	 ctx.beginPath(); ctx.moveTo(12, -35); ctx.lineTo(26, -85); ctx.stroke();
 
-   ctx.fillStyle = colors.center;
-   ctx.beginPath(); ctx.arc(0, -75, 6, 0, Math.PI * 2); ctx.fill();
-   ctx.restore();
-  }
+ 	 ctx.fillStyle = colors.center;
+ 	 ctx.beginPath(); ctx.arc(0, -75, 6, 0, Math.PI * 2); ctx.fill();
+ 	 ctx.restore();
+ 	}
 
-  // Center details
-  const size = 15;
-  ctx.fillStyle = colors.bg;
-  ctx.beginPath();
-  ctx.moveTo(0, -size);
-  ctx.quadraticCurveTo(4, -4, size, 0);
-  ctx.quadraticCurveTo(4, 4, 0, size);
-  ctx.quadraticCurveTo(-4, 4, -size, 0);
-  ctx.quadraticCurveTo(-4, -4, 0, -size);
-  ctx.fill();
+ 	// Center details
+ 	const size = 15;
+ 	ctx.fillStyle = colors.bg;
+ 	ctx.beginPath();
+ 	ctx.moveTo(0, -size);
+ 	ctx.quadraticCurveTo(4, -4, size, 0);
+ 	ctx.quadraticCurveTo(4, 4, 0, size);
+ 	ctx.quadraticCurveTo(-4, 4, -size, 0);
+ 	ctx.quadraticCurveTo(-4, -4, 0, -size);
+ 	ctx.fill();
 
-  for (let i = 0; i < 4; i++) {
-   ctx.save();
-   ctx.rotate(i * Math.PI / 2);
-   ctx.strokeStyle = colors.center;
-   ctx.lineWidth = 2;
-   ctx.beginPath(); ctx.moveTo(0, -size); ctx.lineTo(0, -35); ctx.stroke();
-   ctx.fillStyle = colors.center;
-   ctx.beginPath(); ctx.arc(0, -35, 4, 0, Math.PI * 2); ctx.fill();
-   ctx.restore();
-  }
-  ctx.restore();
+ 	for (let i = 0; i < 4; i++) {
+ 	 ctx.save();
+ 	 ctx.rotate(i * Math.PI / 2);
+ 	 ctx.strokeStyle = colors.center;
+ 	 ctx.lineWidth = 2;
+ 	 ctx.beginPath(); ctx.moveTo(0, -size); ctx.lineTo(0, -35); ctx.stroke();
+ 	 ctx.fillStyle = colors.center;
+ 	 ctx.beginPath(); ctx.arc(0, -35, 4, 0, Math.PI * 2); ctx.fill();
+ 	 ctx.restore();
+ 	}
+ 	ctx.restore();
  }
 
  function drawSingle(targetCtx, x, y, scale, rotationRad, type, colors, r, c) {
-  targetCtx.save();
-  targetCtx.translate(x, y);
-  targetCtx.scale(scale, scale);
-  targetCtx.rotate(rotationRad);
+ 	targetCtx.save();
+ 	targetCtx.translate(x, y);
+ 	targetCtx.scale(scale, scale);
+ 	targetCtx.rotate(rotationRad);
 
-  switch(type) {
-   case 'illusion': drawIllusion(targetCtx, colors, r, c); break;
-   case 'illusion2': drawIllusion2(targetCtx, colors, r, c); break;
-   case 'ornament': drawOrnament(targetCtx, colors); break;
-   case 'classic': drawSlender(targetCtx, colors); break;
-   case 'flower': drawFlower(targetCtx, colors); break;
-   case 'crystal': drawStar(targetCtx, colors); break;
-   case 'lotus': drawLotus(targetCtx, colors); break;
-   case 'sunburst': drawSunburst(targetCtx, colors); break;
-   case 'deco': drawDeco(targetCtx, colors); break;
-   default: drawSlender(targetCtx, colors);
-  }
-  targetCtx.restore();
+ 	switch(type) {
+ 	 case 'illusion': drawIllusion(targetCtx, colors, r, c); break;
+ 	 case 'illusion2': drawIllusion2(targetCtx, colors, r, c); break;
+ 	 case 'ornament': drawOrnament(targetCtx, colors); break;
+ 	 case 'classic': drawSlender(targetCtx, colors); break;
+ 	 case 'flower': drawFlower(targetCtx, colors); break;
+ 	 case 'crystal': drawStar(targetCtx, colors); break;
+ 	 case 'lotus': drawLotus(targetCtx, colors); break;
+ 	 case 'sunburst': drawSunburst(targetCtx, colors); break;
+ 	 case 'deco': drawDeco(targetCtx, colors); break;
+ 	 default: drawSlender(targetCtx, colors);
+ 	}
+ 	targetCtx.restore();
  }
 
  function renderPattern(targetCtx, width, height, currentBaseSize = config.baseSize) {
-  const activeColors = config.colors;
-  targetCtx.fillStyle = activeColors.bg;
-  targetCtx.fillRect(0, 0, width, height);
+ 	const activeColors = config.colors;
+ 	targetCtx.fillStyle = activeColors.bg;
+ 	targetCtx.fillRect(0, 0, width, height);
 
-  const resolutionScale = currentBaseSize / config.baseSize;
-  const size = config.baseSize * config.scale * resolutionScale;
-  
-  let spX, spY, offsetX = 0;
+ 	const resolutionScale = currentBaseSize / config.baseSize;
+ 	const size = config.baseSize * config.scale * resolutionScale;
+ 	
+ 	let spX, spY, offsetX = 0;
 
-  if (config.type === 'illusion' || config.type === 'illusion2') {
-   spX = size * config.spacing * 0.95;
-   spY = spX;
-   offsetX = spX / 2;
-  } else {
-   spX = size * config.spacing;
-   spY = spX * Math.sqrt(3) / 2;
-   offsetX = spX / 2;
-  }
-  
-  const globalRot = (config.rotation * Math.PI) / 180;
-  const cols = Math.ceil(width / spX) + 2;
-  const rows = Math.ceil(height / spY) + 2;
-  const startX = width / 2 - (cols / 2) * spX;
-  const startY = height / 2 - (rows / 2) * spY;
-  
-  for (let r = 0; r < rows; r++) {
-   for (let c = 0; c < cols; c++) {
-    let x = startX + c * spX + offsetX;
-    let y = startY + r * spY;
-    if (config.type !== 'illusion' && config.type !== 'illusion2' && r % 2 !== 0) {
-     x += spX / 2;
-    }
-    drawSingle(targetCtx, x, y, config.scale * resolutionScale, globalRot, config.type, activeColors, r, c);
-   }
-  }
+ 	if (config.type === 'illusion' || config.type === 'illusion2') {
+ 	 spX = size * config.spacing * 0.95;
+ 	 spY = spX;
+ 	 offsetX = spX / 2;
+ 	} else {
+ 	 spX = size * config.spacing;
+ 	 spY = spX * Math.sqrt(3) / 2;
+ 	 offsetX = spX / 2;
+ 	}
+ 	
+ 	const globalRot = (config.rotation * Math.PI) / 180;
+ 	const cols = Math.ceil(width / spX) + 2;
+ 	const rows = Math.ceil(height / spY) + 2;
+ 	const startX = width / 2 - (cols / 2) * spX;
+ 	const startY = height / 2 - (rows / 2) * spY;
+ 	
+ 	for (let r = 0; r < rows; r++) {
+ 	 for (let c = 0; c < cols; c++) {
+ 	 	let x = startX + c * spX + offsetX;
+ 	 	let y = startY + r * spY;
+ 	 	if (config.type !== 'illusion' && config.type !== 'illusion2' && r % 2 !== 0) {
+ 	 	 x += spX / 2;
+ 	 	}
+ 	 	drawSingle(targetCtx, x, y, config.scale * resolutionScale, globalRot, config.type, activeColors, r, c);
+ 	 }
+ 	}
  }
 
  // ----------------------------------------------------------------
@@ -986,277 +995,224 @@
  // ----------------------------------------------------------------
 
  function initCanvas() {
-  canvas.width = container.clientWidth;
-  canvas.height = container.clientHeight;
-  requestAnimationFrame(animate);
+ 	canvas.width = container.clientWidth;
+ 	canvas.height = container.clientHeight;
+ 	requestAnimationFrame(animate);
  }
 
  function updateValues() {
-  config.type = ui.type.value;
-  config.scale = parseFloat(ui.scale.value);
-  config.spacing = parseFloat(ui.spacing.value);
-  config.colors = {
-   bg: ui.bg.value,
-   fillLight: ui.fillLight.value,
-   fillShadow: ui.fillShadow.value,
-   stroke: ui.stroke.value,
-   center: ui.center.value
-  };
-  config.isAnimating = ui.autoSpin.checked;
+ 	config.type = ui.type.value;
+ 	config.scale = parseFloat(ui.scale.value);
+ 	config.spacing = parseFloat(ui.spacing.value);
+ 	config.colors = {
+ 	 bg: ui.bg.value,
+ 	 fillLight: ui.fillLight.value,
+ 	 fillShadow: ui.fillShadow.value,
+ 	 stroke: ui.stroke.value,
+ 	 center: ui.center.value
+ 	};
+ 	config.isAnimating = ui.autoSpin.checked;
  }
 
  function animate(time) {
-  updateValues();
-  if (config.isAnimating) {
-   config.rotation = (config.rotation + 0.1) % 360;
-   ui.rotation.value = config.rotation;
-   ui.dispRotate.textContent = `${Math.round(config.rotation)}°`;
-  }
-  renderPattern(ctx, canvas.width, canvas.height);
-  requestAnimationFrame(animate);
+ 	updateValues();
+ 	if (config.isAnimating) {
+ 	 config.rotation = (config.rotation + 0.1) % 360;
+ 	 ui.rotation.value = config.rotation;
+ 	 ui.dispRotate.textContent = `${Math.round(config.rotation)}°`;
+ 	}
+ 	renderPattern(ctx, canvas.width, canvas.height);
+ 	requestAnimationFrame(animate);
  }
 
  function setupListeners() {
-  const redrawElements = [ui.type, ui.scale, ui.spacing, ui.bg, ui.fillLight, ui.fillShadow, ui.stroke, ui.center];
-  redrawElements.forEach(el => el.addEventListener('input', () => {
-   updateValues();
-  }));
+ 	const redrawElements = [ui.type, ui.scale, ui.spacing, ui.bg, ui.fillLight, ui.fillShadow, ui.stroke, ui.center];
+ 	redrawElements.forEach(el => el.addEventListener('input', () => {
+ 	 updateValues();
+ 	}));
 
-  ui.invertColors.addEventListener('change', () => {
-   const current = {
-    bg: ui.bg.value,
-    main: ui.fillLight.value,
-    sub: ui.fillShadow.value,
-    line: ui.stroke.value,
-    core: ui.center.value
-   };
-   ui.bg.value = current.main;
-   ui.fillLight.value = current.bg;
-   ui.fillShadow.value = current.core;
-   ui.center.value = current.sub;
-   ui.stroke.value = invertHex(current.line);
+ 	ui.invertColors.addEventListener('change', () => {
+ 	 const current = {
+ 	 	bg: ui.bg.value,
+ 	 	main: ui.fillLight.value,
+ 	 	sub: ui.fillShadow.value,
+ 	 	line: ui.stroke.value,
+ 	 	core: ui.center.value
+ 	 };
+ 	 ui.bg.value = current.main;
+ 	 ui.fillLight.value = current.bg;
+ 	 ui.fillShadow.value = current.core;
+ 	 ui.center.value = current.sub;
+ 	 ui.stroke.value = invertHex(current.line);
 
-   updateValues();
-   renderPattern(ctx, canvas.width, canvas.height);
-  });
+ 	 updateValues();
+ 	 renderPattern(ctx, canvas.width, canvas.height);
+ 	});
 
-  ui.scale.addEventListener('input', () => {
-   ui.dispScale.textContent = config.scale.toFixed(2);
-  });
-  ui.spacing.addEventListener('input', () => {
-   ui.dispSpacing.textContent = config.spacing.toFixed(1);
-  });
-  ui.rotation.addEventListener('input', () => {
-   config.rotation = parseFloat(ui.rotation.value);
-   ui.dispRotate.textContent = `${Math.round(config.rotation)}°`;
-  });
+ 	ui.scale.addEventListener('input', () => {
+ 	 ui.dispScale.textContent = config.scale.toFixed(2);
+ 	});
+ 	ui.spacing.addEventListener('input', () => {
+ 	 ui.dispSpacing.textContent = config.spacing.toFixed(1);
+ 	});
+ 	ui.rotation.addEventListener('input', () => {
+ 	 config.rotation = parseFloat(ui.rotation.value);
+ 	 ui.dispRotate.textContent = `${Math.round(config.rotation)}°`;
+ 	});
 
-  window.addEventListener('resize', initCanvas);
+ 	window.addEventListener('resize', initCanvas);
  }
 
  window.randomize = function() {
-  const randomColor = () => '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-  ui.bg.value = randomColor();
-  ui.fillLight.value = randomColor();
-  ui.fillShadow.value = randomColor();
-  ui.stroke.value = randomColor();
-  ui.center.value = randomColor();
-  ui.invertColors.checked = false;
-  updateValues();
-  renderPattern(ctx, canvas.width, canvas.height);
+ 	const randomColor = () => '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+ 	ui.bg.value = randomColor();
+ 	ui.fillLight.value = randomColor();
+ 	ui.fillShadow.value = randomColor();
+ 	ui.stroke.value = randomColor();
+ 	ui.center.value = randomColor();
+ 	ui.invertColors.checked = false;
+ 	updateValues();
+ 	renderPattern(ctx, canvas.width, canvas.height);
  };
 
  window.resetColors = function() {
-  ui.bg.value = "#F5F5F5";
-  ui.fillLight.value = "#DADCC6";
-  ui.fillShadow.value = "#88948B";
-  ui.stroke.value = "#88948B";
-  ui.center.value = "#54555B";
-  ui.invertColors.checked = false;
-  updateValues();
-  renderPattern(ctx, canvas.width, canvas.height);
+ 	ui.bg.value = "#F5F5F5";
+ 	ui.fillLight.value = "#DADCC6";
+ 	ui.fillShadow.value = "#88948B";
+ 	ui.stroke.value = "#88948B";
+ 	ui.center.value = "#54555B";
+ 	ui.invertColors.checked = false;
+ 	updateValues();
+ 	renderPattern(ctx, canvas.width, canvas.height);
  };
 
+ // [수정] 파일명에서 mandala 제거
  window.savePattern = function() {
-  const link = document.createElement('a');
-  // [수정됨] 파일명 변경
-  link.download = `illusion-lab-${Date.now()}.png`;
-  link.href = canvas.toDataURL('image/png', 1.0);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+ 	const link = document.createElement('a');
+ 	link.download = `illusion-lab-${Date.now()}.png`;
+ 	link.href = canvas.toDataURL('image/png', 1.0);
+ 	document.body.appendChild(link);
+ 	link.click();
+ 	document.body.removeChild(link);
  };
 
- // ----------------------------------------------------------------
- // UNIVERSAL DOWNLOAD UTILITY (Ported from React Code)
- // ----------------------------------------------------------------
- 
- async function downloadImageFromUrl(url, filenamePrefix) {
-  // 1. Data URLs (Dynamic Mockups) - direct download
-  if (url.startsWith('data:')) {
-   const link = document.createElement('a');
-   link.href = url;
-   link.download = `${filenamePrefix}-${Date.now()}.png`;
-   document.body.appendChild(link);
-   link.click();
-   document.body.removeChild(link);
-   return;
-  }
-
-  // 2. External URLs (Static Mockups)
-  try {
-   // Ensure we use the direct image domain for Imgur to avoid CORS issues
-   const directUrl = url.replace('https://imgur.com', 'https://i.imgur.com');
-   
-   const response = await fetch(directUrl, {
-    method: 'GET',
-    mode: 'cors',
-   });
-
-   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-   }
-
-   const blob = await response.blob();
-   const blobUrl = window.URL.createObjectURL(blob);
-   const link = document.createElement('a');
-   link.href = blobUrl;
-   link.download = `${filenamePrefix}-${Date.now()}.jpg`;
-   document.body.appendChild(link);
-   link.click();
-   document.body.removeChild(link);
-   
-   // Cleanup
-   setTimeout(() => window.URL.revokeObjectURL(blobUrl), 100);
-
-  } catch (err) {
-   console.error("Download failed, falling back to new tab", err);
-   window.open(url, '_blank');
-  }
- }
-
- // ----------------------------------------------------------------
- // MOCKUP LOGIC
- // ----------------------------------------------------------------
+ // Mockup Logic
  let currentSlide = 0;
  const slides = document.querySelectorAll('.slide-wrapper');
  const mockupWidth = 800;
  const mockupHeight = 600;
 
  function updateSlide(index) {
-  slides.forEach((slide, i) => {
-   slide.classList.remove('active');
-   if (i === index) slide.classList.add('active');
-  });
-  currentSlide = index;
+ 	slides.forEach((slide, i) => {
+ 	 slide.classList.remove('active');
+ 	 if (i === index) slide.classList.add('active');
+ 	});
+ 	currentSlide = index;
  }
 
  window.changeSlide = function(direction) {
-  let newIndex = currentSlide + direction;
-  if (newIndex < 0) newIndex = slides.length - 1;
-  if (newIndex >= slides.length) newIndex = 0;
-  updateSlide(newIndex);
+ 	let newIndex = currentSlide + direction;
+ 	if (newIndex < 0) newIndex = slides.length - 1;
+ 	if (newIndex >= slides.length) newIndex = 0;
+ 	updateSlide(newIndex);
  };
 
  function applyPatternToMockup(mockupId, overlaySrc) {
-  return new Promise(resolve => {
-   const mockupCanvas = document.createElement('canvas');
-   mockupCanvas.width = mockupWidth;
-   mockupCanvas.height = mockupHeight;
-   const mCtx = mockupCanvas.getContext('2d');
-   renderPattern(mCtx, mockupWidth, mockupHeight, 600);
-   
-   if (mockupId === 'img-mug') {
-    mCtx.fillStyle = config.colors.bg;
-    mCtx.beginPath();
-    // Slightly expanded ellipse to cover the rim artifact
-    mCtx.ellipse(400, 80, 180.5, 25.5, 0, 0, 2 * Math.PI);
-    mCtx.fill();
-    // Add stroke to thicken the cover and remove faint lines
-    mCtx.lineWidth = 2;
-    mCtx.strokeStyle = config.colors.bg;
-    mCtx.stroke();
-   }
+ 	return new Promise(resolve => {
+ 	 const mockupCanvas = document.createElement('canvas');
+ 	 mockupCanvas.width = mockupWidth;
+ 	 mockupCanvas.height = mockupHeight;
+ 	 const mCtx = mockupCanvas.getContext('2d');
+ 	 renderPattern(mCtx, mockupWidth, mockupHeight, 600);
+ 	 
+ 	 if (mockupId === 'img-mug') {
+ 	  mCtx.fillStyle = config.colors.bg;
+ 	  mCtx.beginPath();
+ 	  // Slightly expanded ellipse to cover the rim artifact
+ 	  mCtx.ellipse(400, 80, 180.5, 25.5, 0, 0, 2 * Math.PI);
+ 	  mCtx.fill();
+ 	  // Add stroke to thicken the cover and remove faint lines
+ 	  mCtx.lineWidth = 2;
+ 	  mCtx.strokeStyle = config.colors.bg;
+ 	  mCtx.stroke();
+ 	 }
 
-   const img = new Image();
-   img.onload = () => {
-    mCtx.drawImage(img, 0, 0, mockupWidth, mockupHeight);
-    document.getElementById(mockupId).src = mockupCanvas.toDataURL();
-    resolve();
-   };
-   img.src = overlaySrc;
-  });
+ 	 const img = new Image();
+ 	 img.onload = () => {
+ 	 	mCtx.drawImage(img, 0, 0, mockupWidth, mockupHeight);
+ 	 	document.getElementById(mockupId).src = mockupCanvas.toDataURL();
+ 	 	resolve();
+ 	 };
+ 	 img.src = overlaySrc;
+ 	});
  }
 
  window.openMockup = async function() {
-  loading.style.display = 'flex';
-  updateValues();
-  await Promise.all([
-   applyPatternToMockup('img-mug', mugOverlaySrc),
-   applyPatternToMockup('img-mat', matOverlaySrc),
-   applyPatternToMockup('img-ecobag', ecoBagOverlaySrc)
-  ]);
-  loading.style.display = 'none';
-  mockupModal.style.display = 'flex';
-  updateSlide(0);
+ 	loading.style.display = 'flex';
+ 	updateValues();
+ 	await Promise.all([
+ 	 applyPatternToMockup('img-mug', mugOverlaySrc),
+ 	 applyPatternToMockup('img-mat', matOverlaySrc),
+ 	 applyPatternToMockup('img-ecobag', ecoBagOverlaySrc)
+ 	]);
+ 	loading.style.display = 'none';
+ 	mockupModal.style.display = 'flex';
+ 	updateSlide(0);
  };
 
  window.closeMockup = function() {
-  mockupModal.style.display = 'none';
+ 	mockupModal.style.display = 'none';
  };
  
  // --- STATIC MOCKUP GALLERY LOGIC ---
  const staticImages = [
-  "https://imgur.com/RPf6Xya.jpg",
-  "https://imgur.com/MKRdBh1.jpg",
-  "https://imgur.com/wWS6mRT.jpg",
-  "https://imgur.com/vqII4p8.jpg",
-  "https://imgur.com/PVAFShi.jpg",
-  "https://imgur.com/8AmLAfN.jpg",
-  "https://imgur.com/2LKDAe9.jpg"
+ 	"https://imgur.com/RPf6Xya.jpg",
+ 	"https://imgur.com/MKRdBh1.jpg",
+ 	"https://imgur.com/wWS6mRT.jpg",
+ 	"https://imgur.com/vqII4p8.jpg",
+ 	"https://imgur.com/PVAFShi.jpg",
+ 	"https://imgur.com/8AmLAfN.jpg",
+ 	"https://imgur.com/2LKDAe9.jpg"
  ];
  let currentStaticIndex = 0;
  
  function updateStaticImage() {
-  const img = document.getElementById('static-mockup-img');
-  if(img) {
-      img.src = staticImages[currentStaticIndex];
-  }
+ 	const img = document.getElementById('static-mockup-img');
+ 	if(img) {
+ 	    img.src = staticImages[currentStaticIndex];
+ 	}
  }
 
  window.openStaticMockup = function() {
-  currentStaticIndex = 0;
-  updateStaticImage();
-  staticMockupModal.style.display = 'flex';
+ 	currentStaticIndex = 0;
+ 	updateStaticImage();
+ 	staticMockupModal.style.display = 'flex';
  }
  
  window.closeStaticMockup = function() {
-  staticMockupModal.style.display = 'none';
+ 	staticMockupModal.style.display = 'none';
  }
  
  window.changeStaticSlide = function(direction) {
-  currentStaticIndex += direction;
-  if (currentStaticIndex < 0) currentStaticIndex = staticImages.length - 1;
-  if (currentStaticIndex >= staticImages.length) currentStaticIndex = 0;
-  updateStaticImage();
+ 	currentStaticIndex += direction;
+ 	if (currentStaticIndex < 0) currentStaticIndex = staticImages.length - 1;
+ 	if (currentStaticIndex >= staticImages.length) currentStaticIndex = 0;
+ 	updateStaticImage();
  }
-
- // -------------------------------
- // DOWNLOAD HANDLERS
  // -------------------------------
 
+ // [수정] 파일명에서 mandala 제거
  window.downloadCurrentMockup = function() {
-  const currentImg = document.querySelector(`.slide-wrapper.active .mockup-image`);
-  if (currentImg && currentImg.src) {
-   const slideLabel = document.querySelector(`.slide-wrapper.active .slide-label`).textContent.toLowerCase().replace(/[^a-z0-9]/g, '-');
-   downloadImageFromUrl(currentImg.src, `illusion-mockup-${slideLabel}`);
-  }
- }
-
- window.downloadStaticMockup = function() {
-  // Use the newly added function for static images
-  const url = staticImages[currentStaticIndex];
-  downloadImageFromUrl(url, `illusion-static-mockup-${currentStaticIndex}`);
+ 	const currentImg = document.querySelector(`.slide-wrapper.active .mockup-image`);
+ 	if (currentImg && currentImg.src) {
+ 	 const slideLabel = document.querySelector(`.slide-wrapper.active .slide-label`).textContent.toLowerCase().replace(/[^a-z0-9]/g, '-');
+ 	 const link = document.createElement('a');
+ 	 link.download = `illusion-lab-mockup-${slideLabel}-${Date.now()}.png`;
+ 	 link.href = currentImg.src;
+ 	 document.body.appendChild(link);
+ 	 link.click();
+ 	 document.body.removeChild(link);
+ 	}
  }
 
  setupListeners();

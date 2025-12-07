@@ -79,7 +79,6 @@
   padding-bottom: 8px;
  }
 
-  
  .control-row { margin-bottom: 20px; }
  .label-row {
   display: flex;
@@ -223,7 +222,6 @@
  }
  .checkbox-wrapper input { accent-color: #000; }
 
-
  .mockup-modal {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.9);
@@ -269,7 +267,7 @@
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
  }
 
-
+ /* Slider Navigation */
  .slider-btn {
   position: absolute;
   top: 50%;
@@ -325,7 +323,7 @@
   .next-btn { right: 10px; background: rgba(0,0,0,0.5); }
  }
 
-
+ /* --- FOOTER INFORMATION STYLES --- */
  .project-info {
   margin-top: auto; 
   padding-top: 20px;
@@ -452,7 +450,7 @@
 
  <div class="project-info">
   <strong>PROJECT INFORMATION</strong>
-  <div>Project Duration: 11월 24일 - 12월 8일</div>
+  <div>Project Duration: 11월 24일 ~ 12월 8일</div>
   <div class="participants">
    Participants: 문지영, 김하진, 전휘재
   </div>
@@ -473,7 +471,7 @@
   </div>
   
   <div class="slide-wrapper" id="slide-1">
-   <img id="img-mat" class="mockup-image" src="" alt="Carpet Mockup">
+   <img id="img-carpet" class="mockup-image" src="" alt="Carpet Mockup">
    <div class="slide-label">02. CARPET</div>
   </div>
   
@@ -517,8 +515,8 @@
 
  const mugOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='mugShade' x1='10%25' y1='0%25' x2='90%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.15'/><stop offset='30%25' stop-color='white' stop-opacity='0.02'/><stop offset='50%25' stop-color='black' stop-opacity='0.05'/><stop offset='100%25' stop-color='black' stop-opacity='0.5'/></linearGradient><linearGradient id='handleShade' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.4'/><stop offset='30%25' stop-color='black' stop-opacity='0.0'/><stop offset='100%25' stop-color='black' stop-opacity='0.5'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M220 80 A 180 25 0 0 1 580 80 Q580 80 580 100 L560 500 Q560 540 400 540 Q240 540 240 500 L220 100 Q220 80 220 80 Z M579 120 C700 120 700 380 566 380 L567 330 C639 330 639 170 576 170 Z'/><path fill='url(%23mugShade)' style='mix-blend-mode: multiply;' d='M220 80 L580 80 Q580 80 580 100 L560 500 Q560 540 400 540 Q240 540 240 500 L220 100 Q220 80 220 80 Z'/><path fill='url(%23handleShade)' style='mix-blend-mode: multiply;' d='M579 120 C700 120 700 380 566 380 L567 330 C639 330 639 170 576 170 Z'/><ellipse cx='400' cy='80' rx='165' ry='20' fill='black' fill-opacity='0.2'/></svg>`;
  
- // Carpet (Standard Rectangular Rug) Overlay
- const matOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><filter id='f' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0'/></filter><linearGradient id='g' x1='0' y1='0' x2='100%25' y2='100%25'><stop offset='0' stop-color='white' stop-opacity='0.3'/><stop offset='1' stop-color='black' stop-opacity='0.4'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0H800V600H0ZM100 120H700V480H100Z'/><rect x='100' y='120' width='600' height='360' fill='url(%23g)' style='mix-blend-mode:multiply'/><rect x='100' y='120' width='600' height='360' fill='transparent' filter='url(%23f)' style='mix-blend-mode:multiply; opacity:0.6'/><path d='M85 120V480M715 120V480' stroke='white' stroke-width='30' stroke-dasharray='5,5' fill='none'/></svg>`;
+
+ const carpetOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='carpetShade' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.2'/><stop offset='50%25' stop-color='black' stop-opacity='0.05'/><stop offset='100%25' stop-color='black' stop-opacity='0.4'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M100 95 A20 20 0 0 1 120 75 L680 75 A20 20 0 0 1 700 95 L700 505 A20 20 0 0 1 680 525 L120 525 A20 20 0 0 1 100 505 Z'/><rect x='100' y='75' width='600' height='450' rx='20' ry='20' fill='url(%23carpetShade)' style='mix-blend-mode: multiply;' viewBox='0 0 800 600'/><rect x='100' y='75' width='600' height='450' rx='20' ry='20' fill='none' stroke='black' stroke-opacity='0.1' stroke-width='4'/><rect x='105' y='80' width='590' height='440' rx='15' ry='15' fill='none' stroke='white' stroke-opacity='0.2' stroke-width='2' stroke-dasharray='5,5'/></svg>`;
  
  const ecoBagOverlaySrc = `data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E<defs><linearGradient id='bagShade' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.2'/><stop offset='100%25' stop-color='black' stop-opacity='0.35'/></linearGradient><linearGradient id='strapShade' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='white' stop-opacity='0.15'/><stop offset='100%25' stop-color='black' stop-opacity='0.2'/></linearGradient></defs><path fill='%23e0e0e0' fill-rule='evenodd' d='M0 0 H800 V600 H0 Z M220 180 L220 550 Q220 580 250 580 L550 580 Q580 580 580 550 L580 180 L510 180 L510 60 C510 10 290 10 290 60 L290 180 L220 180 Z M340 180 L340 60 C340 30 460 30 460 60 L460 180 Z'/><path fill='url(%23bagShade)' style='mix-blend-mode:multiply;' d='M220 180 L220 550 Q220 580 250 580 L550 580 Q580 580 580 550 L580 180 Z'/><path fill='url(%23strapShade)' style='mix-blend-mode:multiply;' d='M510 180 L510 60 C510 10 290 10 290 60 L290 180 L340 180 L340 60 C340 30 460 30 460 60 L460 180 Z'/><path d='M225 190 H575' stroke='black' stroke-width='1' stroke-dasharray='4 4' opacity='0.3'/></svg>`;
 
@@ -558,8 +556,7 @@
   }
  };
 
-
-
+ 
  function invertHex(hex) {
   if (!hex) return '#000000';
   if (hex.indexOf('#') === 0) hex = hex.slice(1);
@@ -569,7 +566,7 @@
   return '#' + r + g + b;
  }
 
-
+ 
 
  function drawSlender(ctx, colors) {
   const numPoints = 12;
@@ -622,7 +619,7 @@
   const rayLength = 300;
   const rayWidth = 24;
   const angleStep = (Math.PI * 2) / numPoints;
-  
+   
   ctx.fillStyle = colors.fillLight;
   ctx.strokeStyle = colors.stroke;
   ctx.lineWidth = 1;
@@ -821,7 +818,7 @@
   const s = 1.2;
   ctx.scale(s, s);
 
-   
+
   ctx.fillStyle = colors.fillLight;
   for (let i = 0; i < 4; i++) {
    ctx.save();
@@ -1082,7 +1079,7 @@
 
  
  async function downloadImageFromUrl(url, filenamePrefix) {
-  // 1. Data URLs (Dynamic Mockups) - direct download
+
   if (url.startsWith('data:')) {
    const link = document.createElement('a');
    link.href = url;
@@ -1095,6 +1092,7 @@
 
 
   try {
+ 
    const directUrl = url.replace('https://imgur.com', 'https://i.imgur.com');
    
    const response = await fetch(directUrl, {
@@ -1114,7 +1112,6 @@
    document.body.appendChild(link);
    link.click();
    document.body.removeChild(link);
-   
 
    setTimeout(() => window.URL.revokeObjectURL(blobUrl), 100);
 
@@ -1156,8 +1153,10 @@
    if (mockupId === 'img-mug') {
     mCtx.fillStyle = config.colors.bg;
     mCtx.beginPath();
+    // Slightly expanded ellipse to cover the rim artifact
     mCtx.ellipse(400, 80, 180.5, 25.5, 0, 0, 2 * Math.PI);
     mCtx.fill();
+    // Add stroke to thicken the cover and remove faint lines
     mCtx.lineWidth = 2;
     mCtx.strokeStyle = config.colors.bg;
     mCtx.stroke();
@@ -1178,7 +1177,7 @@
   updateValues();
   await Promise.all([
    applyPatternToMockup('img-mug', mugOverlaySrc),
-   applyPatternToMockup('img-mat', matOverlaySrc),
+   applyPatternToMockup('img-carpet', carpetOverlaySrc),
    applyPatternToMockup('img-ecobag', ecoBagOverlaySrc)
   ]);
   loading.style.display = 'none';
@@ -1190,7 +1189,7 @@
   mockupModal.style.display = 'none';
  };
  
-
+ // --- STATIC MOCKUP GALLERY LOGIC ---
  const staticImages = [
   "https://imgur.com/RPf6Xya.jpg",
   "https://imgur.com/MKRdBh1.jpg",
@@ -1205,7 +1204,7 @@
  function updateStaticImage() {
   const img = document.getElementById('static-mockup-img');
   if(img) {
-      img.src = staticImages[currentStaticIndex];
+       img.src = staticImages[currentStaticIndex];
   }
  }
 
@@ -1225,7 +1224,6 @@
   if (currentStaticIndex >= staticImages.length) currentStaticIndex = 0;
   updateStaticImage();
  }
-
 
 
  window.downloadCurrentMockup = function() {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta name="robots" content="noindex">
 <meta name="robots" content="noindex">
+<meta name="robots" content="noindex">
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -1080,7 +1081,7 @@
 
  window.savePattern = function() {
  	const link = document.createElement('a');
- 	link.download = `Illusion Lab-${Date.now()}.png`;
+ 	link.download = `illusion-lab-${Date.now()}.png`;
  	link.href = canvas.toDataURL('image/png', 1.0);
  	document.body.appendChild(link);
  	link.click();
@@ -1197,7 +1198,7 @@
  	if (currentImg && currentImg.src) {
  	 const slideLabel = document.querySelector(`.slide-wrapper.active .slide-label`).textContent.toLowerCase().replace(/[^a-z0-9]/g, '-');
  	 const link = document.createElement('a');
- 	 link.download = `mandala-mockup-${slideLabel}-${Date.now()}.png`;
+ 	 link.download = `illusion-lab-mockup-${slideLabel}-${Date.now()}.png`;
  	 link.href = currentImg.src;
  	 document.body.appendChild(link);
  	 link.click();
